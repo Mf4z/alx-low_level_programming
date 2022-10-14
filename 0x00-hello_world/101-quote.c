@@ -2,14 +2,14 @@
 
 /**
  * main - Entry point
- * Decription : Print without using printf or puts
+ *
  * Return: Always 0 (Success)
  */
 
-char main(void)
+int main(void)
 {
-	char qoute[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-1
-		9\n";
-
-	return (qoute);
+	chars[] qoute[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19
+		\n";
+	fwite(qoute, 59, 1, stderr);
+	return (1);
 }
