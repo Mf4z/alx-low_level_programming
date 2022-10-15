@@ -12,22 +12,17 @@
   */
 int main(void)
 {
-	char alphabet = 'a';
+	int number = 0;
+	char num = number+'0';
 
-	while (alphabet <= 'z')
+	while (number < 10)
 	{
-		if (alphabet == 'e' || alphabet == 'q')
-		{
-			alphabet++;
-			continue;
-		}
+		putchar(num);
 
-		putchar(alphabet);
-
-		alphabet++;
+		number++;
 	}
 
-	putchar('\n');
+	putchar("\n");
 
 	return (0);
 }
