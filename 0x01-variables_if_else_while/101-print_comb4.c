@@ -1,0 +1,46 @@
+#include <stdlib.h>
+#include <time.h>
+#include <stdio.h>
+/* more headers goes there */
+
+/* betty style doc for function main goes there */
+
+/**
+  * main - Code entry point
+  *
+  * Return: Return 0 after execution
+  */
+int main(void)
+{
+	int i, j, k;
+
+	for (i = '0'; i <= '9'; i++)
+	{
+		for (j = k; j <= '9'; j++)
+		{
+			for (k = '0'; k <= '9'; k++)
+			{
+				if (i < j && j < k)
+				{
+					putchar(i);
+					putchar(j);
+					putchar(k);
+
+					if (i == '7' && j == '8' && k == '9')
+						break;
+
+					else
+					{
+						putchar(',');
+						putchar(' ');
+					}
+				}
+
+			}
+		}
+	}
+
+	putchar('\n');
+
+	return (0);
+}
