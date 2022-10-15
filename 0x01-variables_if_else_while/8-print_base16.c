@@ -13,12 +13,20 @@
 int main(void)
 {
 	int num = '0';
+	char alphabet = 'a';
 
-	while (num <= '16')
+	while (num <= '9')
 	{
 		putchar(num);
 
 		num++;
+	}
+
+	while (alphabet <= 'f')
+	{
+		putchar(alphabet);
+
+		alphabet++;
 	}
 
 	putchar('\n');
