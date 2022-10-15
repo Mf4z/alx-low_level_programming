@@ -12,11 +12,12 @@
   */
 int main(void)
 {
+	int i, j;
 	int k = '0';
 
-	for (int i = '0'; i <= '9'; i++)
+	for (i = '0'; i <= '9'; i++)
 	{
-		for (int j = k; j <= '9'; j++)
+		for (j = k; j <= '9'; j++)
 		{
 			if (i != j)
 			{
