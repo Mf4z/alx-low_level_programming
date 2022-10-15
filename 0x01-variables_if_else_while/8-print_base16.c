@@ -12,13 +12,13 @@
   */
 int main(void)
 {
-	int number = 0;
+	int num = '0';
 
-	while (number < 10)
+	while (num <= '16')
 	{
-		putchar('0' + number);
+		putchar(num);
 
-		number++;
+		num++;
 	}
 
 	putchar('\n');
