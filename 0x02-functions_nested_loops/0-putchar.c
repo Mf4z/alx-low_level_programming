@@ -12,7 +12,7 @@ void print_strings(char *string);
 int main(void)
 {
 	char print[] = "_putchar\n";
-	
+
 	print_strings(print);
 
 	return (0);
