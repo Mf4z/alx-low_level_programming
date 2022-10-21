@@ -13,7 +13,7 @@ void print_square(int size)
 
 	j = 0;
 
-	if (size > 1)
+	if (size < 1)
 		_putchar('\n');
 
 	while (j < size)
