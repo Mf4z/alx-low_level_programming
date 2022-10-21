@@ -1,27 +1,33 @@
 #include "main.h"
 
 /**
-  * print_size - Prints n number of # squares
+  * print_square - Prints n number of # squares
+  *
+  * Description: This function prints # size determined by given size
   *
   * @size: number passed to determine number of #
   */
 void print_square(int size)
 {
-	int i;
+	int i, j;
 
-	while (size > 0)
+	j = 0;
+
+	if (size > 1)
+		_putchar('\n');
+
+	while (j < size)
 	{
-		i = size;
+		i = 0;
 
-		while (i > 0)
+		while (i < size)
 		{
 			_putchar('#');
-			i--;
+			i++;
 		}
 
 		_putchar('\n');
-		size--;
+		j++;
 	}
 
-	_putchar('\n');
 }
