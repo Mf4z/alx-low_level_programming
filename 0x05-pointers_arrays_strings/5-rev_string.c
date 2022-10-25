@@ -18,7 +18,7 @@ void rev_string(char *s)
 
 	len = count - 1;
 
-	for (i = 0; i < count / 2; i--)
+	for (i = 0; i < count / 2; i++)
 	{
 		holder = s[i];
 		s[i] = s[len];
