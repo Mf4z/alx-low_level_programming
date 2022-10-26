@@ -1,14 +1,13 @@
 #include "main.h"
 
 /**
-  * puts2 - unction that prints every other character of a string,
-  * starting with the first character, followed by a new line
+  * puts_half - function that prints half of a string, followed by a new line
   *
   * @str: a pointer the string we want to print
   *
   * Return: Nothing
   */
-void puts2(char *str)
+void puts_half(char *str)
 {
 	int count = 0;
 	int i, newStart;
