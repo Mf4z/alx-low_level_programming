@@ -20,7 +20,7 @@ void puts2(char *str)
 		newStart = count / 2;
 
 	else
-		newstart = (count - 1) / 2;
+		newStart = (count - 1) / 2;
 
 	i = newStart;
 
