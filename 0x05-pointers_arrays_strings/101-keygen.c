@@ -13,7 +13,7 @@ int main(void)
 
 	srand(time(NULL));
 
-	for (i = 0; total = 2772; total > 122; i++)
+	for (i = 0, total = 2772; total > 122; i++)
 	{
 		random = (rand() % 125) + 1;
 
