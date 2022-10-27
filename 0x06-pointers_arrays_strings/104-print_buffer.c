@@ -20,8 +20,7 @@ void print_buffer(char *b, int size)
 		for (count = 0; count < 10; count++)
 		{
 			if ((count + byte) >= size)
-				printf(" ");
-
+				printf("  ");
 			else
 				printf("%02x", *(b + count + byte));
 
