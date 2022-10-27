@@ -26,7 +26,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	if (len_a > len_b)
 		largest = len_a;
 	else
-		largesrt = len_b;
+		largest = len_b;
 
 	if ((largest + 1) >= size_r)
 		return (0);
