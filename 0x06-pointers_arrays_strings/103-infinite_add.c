@@ -33,7 +33,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 	r[largest + 1] = '\0';
 
-	while (largest > 0)
+	while (largest >= 0)
 	{
 		a = (n1[len_a - 1] - '\0');
 		b = (n1[len_b - 1] - '\0');
