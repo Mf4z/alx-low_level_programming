@@ -6,7 +6,7 @@
   * @s1: a pointer to first array
   * @s2: a pointer to second array
   *
-  * Return: Nothing
+  * Return: +ve, -ve or 0 for greatr,less equal strings
   */
 int _strcmp(char *s1, char *s2)
 {
