@@ -9,7 +9,7 @@
   * @dest: a pointer to destination
   * @src: a pointer to source
   *
-  * Return: Nothing
+  * Return: copied string
   */
 char *_strcpy(char *dest, char *src)
 {
