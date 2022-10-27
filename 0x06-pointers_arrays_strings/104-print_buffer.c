@@ -21,6 +21,7 @@ void print_buffer(char *b, int size)
 		{
 			if ((count + byte) >= size)
 				printf(" ");
+
 			else
 				printf("%02x", *(b + count + byte));
 
