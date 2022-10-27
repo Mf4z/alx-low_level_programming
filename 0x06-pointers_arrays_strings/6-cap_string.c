@@ -8,10 +8,10 @@
   *
   * Return: Uppercase Words string array
   */
-char *cap_string(char str)
+char *cap_string(char *str)
 {
 	int i, j;
-	char *ignore = ",;.!?(){}\n\t\" ";
+	char ignore[] = ",;.!?(){}\n\t\" ";
 	int ignoreCount;
 
 	ignoreCount = 0;
