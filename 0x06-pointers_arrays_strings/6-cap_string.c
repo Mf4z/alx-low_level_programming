@@ -12,12 +12,6 @@ char *cap_string(char *str)
 {
 	int i, j;
 	char ignore[] = "32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125";
-	int ignoreCount;
-
-	ignoreCount = 0;
-
-	while (ignore != '\0')
-		++ignoreCount;
 
 	i = 0;
 
@@ -30,7 +24,7 @@ char *cap_string(char *str)
 
 			else
 			{
-				for (j = 0; j < ignoreCount; j++)
+				for (j = 0; j <= 12; j++)
 				{
 					if (ignore[j] == str[i - 1])
 						str[i] -= 32;
