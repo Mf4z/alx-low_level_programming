@@ -6,18 +6,18 @@
   *
   * Return: Nothing
   */
-void main(void)
+int main(void)
 {
 	int n;
-	int num[5];
+	int a[5];
 	int *ptr;
 
-	num[2] = 1024;
+	a[2] = 1024;
 	ptr = &n;
 
 	ptr[5] = 98;
 
-	printf("num[2] = %d\n", num[2]);
+	printf("a[2] = %d\n", a[2]);
 
 	return (0);
 }
