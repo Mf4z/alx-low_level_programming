@@ -30,7 +30,7 @@ void print_buffer(char *b, int size)
 
 		for (count = 0; count < 10; count++)
 		{
-			if ((count + bytes) >= size)
+			if ((count + byte) >= size)
 				break;
 			else if (*(b + count + byte) >= 31 &&
 				*(b + count + byte) <= 126)
