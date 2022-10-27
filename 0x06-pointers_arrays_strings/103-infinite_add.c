@@ -35,8 +35,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 	while (largest >= 0)
 	{
-		a = (n1[len_a - 1] - '\0');
-		b = (n1[len_b - 1] - '\0');
+		a = (n1[len_a - 1] - '0');
+		b = (n1[len_b - 1] - '0');
 
 		if (len_a > 0 && len_b > 0)
 			sum = a + b + carry;
