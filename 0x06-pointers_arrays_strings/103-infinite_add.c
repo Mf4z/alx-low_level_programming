@@ -1,28 +1,28 @@
 #include "main.h"
 
 /**
-  * reverse_string- function that reverses the content
+  * rev_string- function that reverses the content
   * of an array of integers
   *
   * @n: a pointer to chat array
   *
   * Return: Nothing
   */
-void reverse_string(char *n)
+void rev_string(char *n)
 {
 	int i = 0;
 	int j = 0;
 	char holder;
 
-	while (n[i] != '\0')
+	while (*(n + i) != '\0')
 		i++;
 	i--;
 
 	for (j = 0; j < i; j++, i--)
 	{
-		holder = n[j];
-		n[j] = n[i];
-		n[i] = holder;
+		holder = *(n + j);
+		*(n + j) = *(n + i);
+		*(n + i) = holder;
 	}
 }
 
@@ -40,10 +40,9 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	int overflow = 0, i = 0, j = 0, digits = 0;
 	int num1 = 0, num2 = 0, temp_sum = 0;
 
-	while (n1[i] != '\0')
+	while (*(n1 + i) != '\0')
 		i++;
-
-	while (n2[j] != '\0')
+	while (*(n2 + j) != '\0')
 		j++;
 
 	i--;
@@ -55,11 +54,11 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		if (i < 0)
 			num1 = 0;
 		else
-			num1 = n1[i] - '0';
+			num1 = *(n1 + i) - '0';
 		if (j < 0)
 			num2 = 0;
 		else
-			num2 = n2[j] - '0';
+			num2 = *(n2 + j) - '0';
 
 		temp_sum = num1 + num2 + overflow;
 		if (temp_sum >= 10)
@@ -76,7 +75,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	if (digits == size_r)
 		return (0);
 	*(r + digits) = '\0';
-	reverse_string(r);
+	rev_string(r);
 	return (r);
 }
-
