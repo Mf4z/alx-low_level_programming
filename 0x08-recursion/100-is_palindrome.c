@@ -1,7 +1,7 @@
 #include "main.h"
 
 int get_length(char *s);
-int plaind(char *s, int l);
+int palind(char *s, int l);
 /**
   * is_palindrome - function that checks if string is palindrome
   *
