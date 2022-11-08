@@ -8,14 +8,15 @@
   */
 int main(void)
 {
-	char *s = "hello";
-	char *f;
+	char *s;
 
-	f = _strchr(s, 'l');
-
-	if (f != NULL){
-		printf("%s\n", f);
+	s = _strdup("ALX SE");
+	if (s == NULL)
+	{
+		printf("failed to allocate memory\n");
+		return (1);
 	}
-
+	printf("%s\n", s);
+	free(s);
 	return (0);
 }
