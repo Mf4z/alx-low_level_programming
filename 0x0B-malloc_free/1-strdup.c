@@ -21,7 +21,10 @@ char *_strdup(char *str)
 	length = 0;
 
 	while (str[length] != '\0')
-		++length;
+		length++;
+
+	/* Add 1 to make it length of arry not string */
+	length++;
 
 	copy = malloc(sizeof(*copy) * length);
 
