@@ -30,6 +30,6 @@ char *_strdup(char *str)
 
 	for (i = 0; i < length; i++)
 		copy[i] = str[i];
-	
+
 	return (copy);
 }
