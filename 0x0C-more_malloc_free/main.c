@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "main.h"
+#include <limits.h>
 
 /**
   * main - check the code
@@ -8,15 +8,22 @@
   */
 int main(void)
 {
-	char *s;
+	char *c;
+	int *i;
+	float *f;
+	double *d;
 
-	s = str_concat("Betty ", "Holberton");
-	if (s == NULL)
-	{
-		printf("failed\n");
-		return (1);
-	}
-	printf("%s\n", s);
-	free(s);
+	c = malloc_checked(sizeof(char) * 1024);
+	printf("%p\n", (void *)c);
+	i = malloc_checked(sizeof(int) * 402);
+	printf("%p\n", (void *)i);
+	f = malloc_checked(sizeof(float) * 100000000);
+	printf("%p\n", (void *)f);
+	d = malloc_checked(INT_MAX);
+	printf("%p\n", (void *)d);
+	free(c);
+	free(i);
+	free(f);
+	free(d);
 	return (0);
 }

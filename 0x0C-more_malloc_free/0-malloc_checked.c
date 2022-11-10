@@ -10,18 +10,19 @@
 void *malloc_checked(unsigned int b)
 {
 	void  *allocation;
-	int error = 98;
+	unsigned int error = 98;
 
 
 	if (b < 1)
-		_putchar(error + '0');
+		exit (error);
 
 	allocation = malloc(sizeof(b));
 
 	if (allocation == NULL)
 	{
 		free(allocation);
-		_putchar(error + '0');
+		exit (error);
 	}
 
+	return (allocation);
 }
