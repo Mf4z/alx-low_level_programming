@@ -14,14 +14,14 @@ void *malloc_checked(unsigned int b)
 
 
 	if (b < 1)
-		exit (error);
+		exit(error);
 
 	allocation = malloc(sizeof(b));
 
 	if (allocation == NULL)
 	{
 		free(allocation);
-		exit (error);
+		exit(error);
 	}
 
 	return (allocation);
