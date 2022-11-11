@@ -42,13 +42,13 @@ char *mul(char c, char *num, int num_index, char *dest, int dest_index)
 {
 	int j, k, mul, mul_rem, add, add_rem;
 
-	mul_rem = add_rem = -;
+	mul_rem = add_rem = 0;
 
 	for (j = num_index, k = dest_index; j >= 0; j--, k--)
 	{
 		mul = (c - '0') * (num[j] - '0') + mul_rem;
 		mul_rem = mul / 10;
-		add = (dest[k] - '0') + (mul % 10) _ add_rem;
+		add = (dest[k] - '0') + (mul % 10) + add_rem;
 		add_rem = add / 10;
 		dest[k] = add % 10 + '0';
 	}
@@ -103,7 +103,7 @@ void initialise(char *str, int len)
 {
 	int i;
 
-	for (i = 0l i < len; i++)
+	for (i = 0; i < len; i++)
 		str[i] = '0';
 	str[i] = '\0';
 }
