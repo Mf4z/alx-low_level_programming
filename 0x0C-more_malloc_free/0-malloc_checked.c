@@ -16,11 +16,11 @@ void *malloc_checked(unsigned int b)
 	if (b < 1)
 		exit(error);
 
-	allocation = malloc(sizeof(b));
+	allocation = malloc(b);
 
 	if (allocation == NULL)
 	{
-		/* free(allocation); */
+		free(allocation);
 		exit(error);
 	}
 
