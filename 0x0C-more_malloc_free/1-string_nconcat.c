@@ -48,8 +48,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		concat[s1_length + i] = s2[i];
 
 	/* Add '/0' if it is the end of s2 */
-	if (s2[i] != '\0')
-		s2[i + 1] = '\0';
+	s2[i] = '\0';
 
 	return (concat);
 }
