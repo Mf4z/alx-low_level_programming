@@ -1,111 +1,67 @@
 #include "main.h"
 
 /**
-  * _printer - function that prints and move strings to the left one at a time
+  * error - function that prints error string
   *
-  * @str: string to move
-  * @len: length of string
-  *
-  * Return: Returns Nothing
+  * Return: Returns Error and a new line
   */
-void _printer(char *str, int len)
+void error(void)
 {
-	int i, j;
-
-	i = j = 0;
-	while (i < len)
-	{
-		if (str[i] != '0')
-			j = 1;
-		if (j || i == len - 1)
-			_putchar(str[i]);
-		i++;
-	}
-
+	_putchar('E');
+	_putchar('r');
+	_putchar('r');
+	_putchar('o');
+	_putchar('r');
 	_putchar('\n');
-	free(str);
-}
-
-
-/**
-  * mul - program that multiplies two positive numbers
-  *
-  * @c: char to multiply
-  * @num: string to multiply
-  * @num_index: last non NULL index of number
-  * @dest: product of multiplication
-  * @dest_index: highest index to start addition
-  *
-  * Return: Returns pointer to destination, or NULL on failure
-  */
-char *mul(char c, char *num, int num_index, char *dest, int dest_index)
-{
-	int j, k, mul, mul_rem, add, add_rem;
-
-	mul_rem = add_rem = 0;
-
-	for (j = num_index, k = dest_index; j >= 0; j--, k--)
-	{
-		mul = (c - '0') * (num[j] - '0') + mul_rem;
-		mul_rem = mul / 10;
-		add = (dest[k] - '0') + (mul % 10) + add_rem;
-		add_rem = add / 10;
-		dest[k] = add % 10 + '0';
-	}
-
-	for (add_rem += mul_rem; k >= 0 && add_rem; k--)
-	{
-		add = (dest[k] - '0') + add_rem;
-		add_rem = add / 10;
-		dest[k] = add % 10 + '0';
-	}
-
-	if (add_rem)
-	{
-		return (NULL);
-	}
-
-	return (dest);
+	exit(98);
 }
 
 /**
-  * digit_check - function that checks arguments for digits
+  * digit_checker- function that checks arguments for digits
   *
-  * @ptr_args: Pointer arguments
+  * @arg: Pointer arguments
   *
   * Return: 0 if digit 1 not digit
   */
-int digit_check(char **ptr_args)
+int digit_checker(char **arg)
 {
 	int i, j;
 
 	for (i = 1; i < 3; i++)
 	{
-		for (j = 0; ptr_args[i][j]; j++)
+		for (j = 0; arg[i][j]; j++)
 		{
-			if (ptr_args[i][j] < '0' || ptr_args[i][j] > '9')
-				return (1);
+			if (arg[i][j] < '0' || arg[i][j] > '9')
+				return (0);
 		}
 	}
-	return (0);
+	return (1);
 }
 
-
 /**
-  * initialise - function that initialises strings
+  * _calloc - function that initialises memory spaces with zero
   *
-  * @str: string to initialise
-  * @len: length of string
+  * @nmemb: string 1
+  * @size: string 2 concatenated to 1
   *
-  * Return: Returns nothing
+  * Return: Returns pointer to concatenated string
   */
-void initialise(char *str, int len)
+void *_calloc(unsigned  int nmemb, unsigned int size)
 {
-	int i;
+	unsigned int i;
+	char *newarr;
 
-	for (i = 0; i < len; i++)
-		str[i] = '0';
-	str[i] = '\0';
+	if (nmemb == 0 || size == 0)
+		return (NULL);
+
+	newarr = malloc(nmemb * size);
+
+	if (newarr == NULL)
+		return (NULL);
+
+	for (i = 0; i < (nmemb * size); i++)
+		newarr[i] = 0;
+	return (newarr);
 }
 
 /**
@@ -118,43 +74,44 @@ void initialise(char *str, int len)
   */
 int main(int argc, char *argv[])
 {
-	int l1, l2, ln, ti, i;
-	char *a;
-	char *t;
-	char e[] = "Error\n";
+	int i, j, carry, len, len_s1 = 0, len_s2 = 0;
+	char *s1 = argv[1], *s2 = argv[2];
+	int *a, *b, *ans;
 
-	if (argc != 3 || digit_check(argv))
-	{
-		for (ti = 0; e[ti]; ti++)
-			_putchar(e[ti]);
-		exit(98);
-	}
-	for (l1 = 0; argv[1][l1]; l1++)
-		;
+	if (argc != 3 || digit_checker(argv) != 1)
+		error();
+	if (*s1 == '0' || *s2 == '0')
+		_putchar('0');
+	while (*(*(argv + 1) + len_s1))
+		len_s1++;
+	while (*(*(argv + 2) + len_s2))
+		len_s2++;
+	len = len_s1 + len_s2 + 1;
+	a = (int *) malloc(len_s1 * sizeof(int));
+	b = (int *) malloc(len_s2 * sizeof(int));
+	ans = _calloc(len, sizeof(int));
 
-	for (l2 = 0; argv[2][l2]; l2++)
-		;
-	ln = l1 + l2 + 1;
-	a = malloc(ln * sizeof(char));
-	if (a == NULL)
-	{
-		for (ti = 0; e[ti]; ti++)
-			_putchar(e[ti]);
-		exit(98);
-	}
-	initialise(a, ln - 1);
-	for (ti = l2 - 1, i = 0; ti >= 0; t--, i++)
-	{
-		t = mul(argv[2][ti], argv[1], l1 - 1, a, (ln - 2) - i);
-		if (t == NULL)
-		{
-			for (ti = 0; e[ti]; ti++)
-				_putchar(e[ti]);
-			free(a);
-			exit(98);
-		}
-	}
-	_printer(a, ln - 1);
+	if (a == NULL || b == NULL || ans == NULL)
+		error();
 
+	for (i = len_s1 - 1, j = 0; i >= 0; i--, j++)
+		a[j] = s1[i] - '0';
+	for (i = len_s2 - 1, j = 0; i >= 0; i--, j++)
+		b[j] = s2[i] - '0';
+	for (i = 0; i < len_s2; i++)
+		for (j = 0; j < len_s1; j++)
+			ans[i + j] = ans[i + j] + b[i] * a[j];
+	for (i = 0; i < len_s1 + len_s2; i++)
+	{
+		carry = ans[i] / 10, ans[i] = ans[i] % 10;
+		ans[i + 1] = ans[i + 1] + carry;
+	}
+	for (i = len_s1 + len_s2; i >= 0; i--)
+		if (ans[i] > 0)
+			break;
+	for (; i >= 0; i--)
+		_putchar(ans[i] + '0');
+	_putchar('\n');
+	free(a), free(b), free(ans);
 	return (0);
 }
