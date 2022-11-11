@@ -17,7 +17,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (nmemb < 1 || size < 1)
 		return (NULL);
 
-	ptr = malloc(sizeof(nmemb * size);
+	ptr = malloc(sizeof(nmemb * size));
 
 	if (ptr == NULL)
 		return (NULL);
