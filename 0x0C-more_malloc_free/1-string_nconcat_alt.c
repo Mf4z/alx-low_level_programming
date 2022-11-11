@@ -12,8 +12,9 @@
   */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int concat_length, s1_length, s2_length, i, offset;
+	int concat_length, s1_length, s2_length, i, num;
 	char *concat;
+	num = n;
 
 	if (s1 == NULL)
 		s1 = "";
@@ -29,20 +30,22 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	while (s2[s2_length] != '\0')
 		s2_length++;
 
+	if (num < 0)
+		return (NULL);
 	/* Check if n is >= s2_length */
-	if (n >= s2_length)
-		offset = s2_length;
-	else
-		offset = n;
+	if (num >= s2_length)
+		num = s2_length;
 	/* Add 1 to make it length of array not string and to include '/0' */
-	concat_length = s1_length + offset + 1;
+	concat_length = s1_length + num + 1;
 
 	concat = malloc(sizeof(*concat) * concat_length);
 
 	if (concat == NULL)
 		return (NULL);
+	/* Fill up concat with s1 string */
 	for (i = 0; i < s1_length; i++)
 		concat[i] = s1[i];
+	/* Continue filling up concat with s2 string */
 	for (i = s1_length; i < concat_length; i++)
 		concat[i] = s2[i - s1_length];
 
