@@ -35,7 +35,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	/* Add 1 to make it length of array not string and to include '/0' */
 	concat_length = s1_length + n + 1;
 
-	concat = malloc(sizeof(char) * concat_length);
+	concat = malloc(sizeof(*concat) * concat_length);
 
 	if (concat == NULL)
 		return (NULL);
